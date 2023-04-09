@@ -1,16 +1,10 @@
 <!-- #include file="aspLite/aspLite.asp"-->
 <%
-on error resume next
 
-'default path: uploads
-dim uploadsDirVar : uploadsDirVar = server.MapPath ("files") 
-
+'aspLite upload plugin
 dim upload : Set upload = aspL.plugin("uploader")
 
-'save the files in the folder
-upload.Save uploadsDirVar
+'save the files in the same folder
+upload.Save server.MapPath (".") 
 
-set upload=nothing
-
-on error goto 0
 %>
